@@ -8,10 +8,6 @@ impl PolygonRenderer {
         framebuffer.set_current_color(color);
 
         Self::draw_contour(framebuffer, &polygon.vertices);
-
-        for hole in &polygon.holes {
-            Self::draw_contour(framebuffer, hole);
-        }
     }
 
     fn draw_contour(framebuffer: &mut Framebuffer, vertices: &[(i32, i32)]) {

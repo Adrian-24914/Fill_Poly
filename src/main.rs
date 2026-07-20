@@ -1,12 +1,12 @@
-mod bmp;
 mod framebuffer;
 mod line;
+mod png;
 mod polygon;
 mod polygon_renderer;
 mod scanline;
 
-use crate::bmp::write_bmp;
 use crate::framebuffer::Framebuffer;
+use crate::png::write_png;
 use crate::polygon::Polygon;
 use crate::polygon_renderer::PolygonRenderer;
 use crate::scanline::Scanline;
@@ -70,8 +70,8 @@ fn main() -> std::io::Result<()> {
     PolygonRenderer::render(&mut framebuffer, &polygon4, border_color);
     PolygonRenderer::render(&mut framebuffer, &polygon5, border_color);
 
-    write_bmp(&framebuffer, "out.bmp")?;
-    println!("Se creó out.bmp");
+    write_png(&framebuffer, "out.png");
+    println!("Se creó out.png");
 
     Ok(())
 }
